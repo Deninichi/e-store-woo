@@ -1,0 +1,43 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.treeview .list-group-item{cursor:pointer}.treeview span.indent{margin-left:10px;margin-right:10px}.treeview span.icon{width:12px;margin-right:5px}.treeview .node-disabled{color:silver;cursor:not-allowed}
+
+.e-store-woo.options-area{
+    margin-top: 15px;
+}
+
+input.general-option{
+    margin-top:1px!important;
+}
+.cat-link-title{
+    margin-left: 10px;
+}
+
+.subcat-link-title{
+    margin-left: 15px;
+}
+
+.tab-content{
+    margin: 20px;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+.form-group label {
+    width: 15%;}
+
+tr.banned span {
+    color: #00fd23;
+}
+tr.banned {
+    background: #ad0d0d;
+    color: #fff;
+}
