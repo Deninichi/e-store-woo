@@ -17,6 +17,7 @@ class E_Store_Woo_Redirects {
 
 		if ( $randLink = get_option( 'rand_link' ) ) {
 			if ( strpos( $_SERVER['REQUEST_URI'], $randLink ) ) {
+
 				if ( $product = get_posts( [
 					'post_type'      => 'post',
 					'orderby'        => 'rand',
@@ -29,7 +30,6 @@ class E_Store_Woo_Redirects {
 				            )
 				    )
 				] ) ) {
-
 					return $product;
 				}
 			}
@@ -89,7 +89,9 @@ class E_Store_Woo_Redirects {
 	}
 
 	public function createMetaTag() {
+
 		$this->printMeta();
+
 	}
 
 
@@ -100,6 +102,11 @@ class E_Store_Woo_Redirects {
 	public function generateRefInput() {
 		$user = new E_Store_Woo_User();
 		$userIp = $user->getRealIP();
+
+		if ( ! is_single( get_the_ID() ) ) {
+			return false;
+		}
+
 		if ( $amazonData = get_transient( $userIp . 'amazonLink' ) ) {
 			echo '<input type="hidden" class="amazonLink" name="referrer" value="' . $amazonData . '" />';
 		}

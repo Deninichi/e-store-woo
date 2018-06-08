@@ -39,13 +39,11 @@
     //     }
     //  });
 
-
-
-    $( window ).load(function() {
-        if( $('.single .amazonLink').length > 0 ){
+    //$( window ).load(function() {
+        if( $('.amazonLink').length > 0 ){
              window.location.href = $('.amazonLink' ).val();
         }
-    });
+    //});
 
 
 })(jQuery);
