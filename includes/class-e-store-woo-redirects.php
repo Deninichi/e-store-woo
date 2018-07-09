@@ -154,12 +154,13 @@ class E_Store_Woo_Redirects {
 			$appip_responsegroup 	= apply_filters('getSingleAmazonProduct_response_group',"Large,Reviews,Offers,Variations");
 			$appip_idtype	 		= apply_filters('getSingleAmazonProduct_type',"ASIN");
 
-
-			$set_array				= array("Operation" => $appip_operation,"ItemId" => $asin,"ResponseGroup" => $appip_responsegroup,"IdType" => $appip_idtype,"AssociateTag" => $aws_partner_id );
-			$api_request_array		= array('locale'=>$aws_partner_locale,'public_key'=>$public_key,'private_key'=>$private_key,'api_request_array'=>$set_array);
+			$set_array				= array("Operation" => $appip_operation,"ItemId" => $asin,"ResponseGroup" => $appip_responsegroup,"IdType" => $appip_idtype,"AssociateTag" => APIAP_ASSOC_ID );
+			$api_request_array		= array('locale'=> APIAP_LOCALE,'public_key'=> APIAP_PUB_KEY,'private_key'=> APIAP_SECRET_KEY,'api_request_array'=>$set_array);
 			$request_array			= apply_filters('appip_pre_request_array',$api_request_array);
+
 			$pxmlNew				= amazon_plugin_aws_signed_request($request_array['locale'],$request_array['api_request_array'],$request_array['public_key'],$request_array['private_key']);
-			return $pxmlNew[0]["ItemLookupResponse"]["Items"]["Item"][0]["DetailPageURL"];
+
+			return $pxmlNew[0]["Items"]["Item"][0]["DetailPageURL"];
 		}
 	}
 
